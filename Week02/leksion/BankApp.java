@@ -1,4 +1,4 @@
-package Week02;
+package Week02.leksion;
 
 public class BankApp {
 
@@ -13,5 +13,5 @@ public class BankApp {
 
 
     }
-    
+        
 }

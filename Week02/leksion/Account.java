@@ -1,4 +1,4 @@
-package Week02;
+package Week02.leksion;
 //we defined the class
 public class Account {
     //we defined the properities
