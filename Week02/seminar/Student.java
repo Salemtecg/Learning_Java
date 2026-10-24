@@ -1,11 +1,11 @@
-public class Students {
+public class Student {
     
     private final String studentID;
     private String name;
     private double gpa;
     private final int enrolmentYear;
 
-    public Students (String studentID, String name, int enrolmentYear){
+    public Student (String studentID, String name, int enrolmentYear){
         this.studentID = studentID;
         this.name = name;
         this. gpa = 0.0;
