@@ -1,63 +1,64 @@
-
-
 public class Student {
-
+    
+    private final String studentID;
     private String name;
-    private String lastName;
-    private int ID;
-    private Course[] courses;
-    private int numOfCourses;
+    private double gpa;
+    private final int enrolmentYear;
 
-    
+    public Student (String studentID, String name, int enrolmentYear){
+        this.studentID = studentID;
+        this.name = name;
+        this. gpa = 0.0;
+        this.enrolmentYear = enrolmentYear;
 
-    public Student (String name, String lastName, int ID){
-        this.name=name;
-        this.lastName=lastName;
-        this.ID=ID;
+        
+    }
 
-        this.courses = new Course[6];
-        this.numOfCourses = 0;
-    }  
-    
+    public String getStudentID() {
+        return studentID;
+    }
+
     public String getName() {
         return name;
     }
 
-    public void getCourses() {
-        for (Course c : courses) {
-            if(c != null){
-                System.out.println(c.getTitle());
+    public double getGpa() {
+        return gpa;
+    }
+
+    public int getEnrolmentYear() {
+        return enrolmentYear;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void updateGpa(double newGpa){
+
+        this.gpa = newGpa;
+
+    }
+
+    public String academicStanding(){
+
+            if(this.gpa >= 2.0){
+                return "Good standing";
+            }else if (this.gpa >= 1.5) {
+                return "Academic probation";
+            }else {
+                return "Warning";
             }
+    }
+    public int yearsEnroled(int currentYear){
 
-            
-        }
-        
+        return currentYear - this.enrolmentYear;
 
     }
 
-
-    
-
-
-    
-    // nje student mund te kete vetem 6 kurse
-    public boolean register(Course course){
-        
-        if(numOfCourses >= 6){
-            System.out.println("You have already joined the max amount of courses");
-            return false;
-        }
-
-        this.addCourse(course);
-        course.addStudent(this);
-        return true;
-        
+    @Override
+    public String toString() {
+       return "ID: " + this.studentID + " Name : " + this.name +" Gpa is: " + this.gpa + " Year of enrolment: " + this.enrolmentYear;
     }
-    public void  addCourse(Course c){
-
-        courses[numOfCourses++] = c;
-       
-    }
-
     
 }
