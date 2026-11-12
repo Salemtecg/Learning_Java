@@ -1,11 +1,17 @@
 public class Professor {
-
+    // empoyee id has to start with EM:
     private final String employeeId;
     private String name;
     private String specialisation;
     private int yearsOfExperiece;
 
     public Professor(String employeeID, String name, String specialisation, int yearsOfExperiece) {
+
+        if(!(employeeID.charAt(0) == 'E' || employeeID.charAt(1)== 'M')){
+
+            throw new IllegalArgumentException("Emloyee ID is incorrect");
+        }
+        
         this.employeeId = employeeID;
         this.name = name;
         this.specialisation = specialisation;

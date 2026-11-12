@@ -10,15 +10,16 @@ public class University {
 
         System.out.println("\n\n");
 
-        Student studentA0 = new Student("34fghj", "Mari", 2025);
+        Student studentA0 = new Student("34fghj", "mari", 2000);
         System.out.println(studentA0);
-        studentA0.updateGpa(2.8);        
+        System.out.println(studentA0.getCourseCount());
+        studentA0.updateGpa(0.1);        
         System.out.println("The new gpa is :" + studentA0.getGpa() + " " + studentA0.academicStanding() );
         System.out.println("Student " + studentA0.getName() + " has been enroled for this many years : " + studentA0.yearsEnroled(2026));
 
         System.out.println("\n\n");
 
-        Professor X = new Professor("34dfh","X","Mind controll specialist",65);
+        Professor X = new Professor("EM12345678","X","Mind controll specialist",65);
         System.out.println(X);
         System.out.println(X.academicTitle() + " " + X.getName() + (X.isExperienced() ? " is ":" isn't ")+ " experienced.");
         X.completeOnotherYear();
