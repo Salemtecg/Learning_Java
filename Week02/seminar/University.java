@@ -28,6 +28,12 @@ public class University {
         Departament mind = new Departament("The mind contorl departament", "3", "Exavior");
 
         System.out.println(mind);
+
+        System.out.println("\n\n");
+
+        Course java = new Course("2345678", "Java", 5, "Fall semester 2026");
+        System.out.println(java);
+        System.out.println("Major?" + java.isMajorCourse());
     }
     
 }
