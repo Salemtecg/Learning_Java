@@ -1,9 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Professor {
+
+    private final int MAX_COURSE_PER_PROF = 4;
+
     // empoyee id has to start with EM:
     private final String employeeId;
     private String name;
     private String specialisation;
     private int yearsOfExperiece;
+    private final List<Course> courseList = new ArrayList<>();
+
 
     public Professor(String employeeID, String name, String specialisation, int yearsOfExperiece) {
 
@@ -11,7 +19,7 @@ public class Professor {
 
             throw new IllegalArgumentException("Emloyee ID is incorrect");
         }
-        
+
         this.employeeId = employeeID;
         this.name = name;
         this.specialisation = specialisation;
@@ -61,6 +69,35 @@ public class Professor {
 
     public void completeOnotherYear(){
         this.yearsOfExperiece++;
+    }
+
+     public boolean assign(Course newCourse){
+        //nuk mund te futeni ne  nje kurs qe eshte null
+
+        if(newCourse==null){
+            throw new NullPointerException("Proffessor cannot join a null course");
+        }
+        //you cannot join a course for the second time
+        if(courseList.contains(newCourse)){
+            return false;
+        }
+        //you cannot join more that 6 courses
+        if(courseList.size()>=MAX_COURSE_PER_PROF){
+            return false;
+        }
+
+        
+        courseList.add(newCourse);
+        return true;
+
+    }
+
+    public int totalTeachingCredits(){
+        int sum = 0;
+        for(Course c : courseList){
+            sum += c.getCredits();
+        }
+        return sum;
     }
 
     @Override
